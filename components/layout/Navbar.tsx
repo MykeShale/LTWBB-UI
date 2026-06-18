@@ -26,6 +26,7 @@ const Navbar = () => {
     { href: '/podcast', label: { en: 'Podcast', sw: 'Podcasti' } },
     { href: '/events', label: { en: 'Events', sw: 'Matukio' } },
     { href: '/contact', label: { en: 'Contact', sw: 'Mawasiliano' } },
+    { href: '/donate', label: { en: 'Donate', sw: 'Changia' } },
   ];
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 shadow-lg border-b border-brand-light/20'
+          ? 'bg-white/95 shadow-[0_2px_12px_rgba(44,62,140,0.10)] border-b border-brand-light/20'
           : isCrisisPage
           ? 'bg-brand-light/80 backdrop-blur-sm'
           : 'bg-transparent'
@@ -73,30 +74,24 @@ const Navbar = () => {
             <div className={`relative transition-all duration-300 ${
               isScrolled ? 'scale-95' : 'scale-100'
             }`}>
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                isScrolled 
-                  ? 'bg-gradient-to-br from-brand-navy to-brand-royal shadow-lg' 
-                  : isCrisisPage
-                  ? 'bg-gradient-to-br from-brand-navy to-brand-royal shadow-md'
-                  : 'bg-white/20 backdrop-blur-sm border border-white/30'
-              }`}>
-                <div className={`font-bold text-xl transition-colors duration-300 ${
-                  isScrolled ? 'text-white' : 'text-white'
-                }`}>
-                  L
-                </div>
+              <div className="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
+                <img
+                  src="/logo.png"
+                  alt="LTWBB Logo"
+                  className="w-8 h-8 object-contain"
+                />
               </div>
             </div>
             <div className="flex flex-col">
               <div className={`font-bold text-xl transition-colors duration-300 ${
                 isScrolled ? 'text-brand-navy' : isCrisisPage ? 'text-brand-navy' : 'text-white'
               }`}>
-                LTWBB
+                LT
               </div>
               <div className={`text-xs font-light transition-colors duration-300 ${
                 isScrolled ? 'text-gray-500' : isCrisisPage ? 'text-brand-navy/70' : 'text-brand-light/80'
               }`}>
-                Conversations Save Lives
+                Your Voice, Your Power
               </div>
             </div>
           </Link>
@@ -131,20 +126,20 @@ const Navbar = () => {
               {/* Language Toggle */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-full transition-all duration-300 ease-in-out hover:shadow-sm hover:scale-[1.02] ${
-                      isScrolled 
-                        ? 'hover:bg-brand-light/30 text-gray-600 hover:text-brand-navy' 
-                        : isCrisisPage
-                        ? 'hover:bg-brand-light/30 text-brand-navy/80 hover:text-brand-navy'
-                        : 'hover:bg-white/10 text-white/80 hover:text-white'
-                    }`}
-                  >
-                    <Globe className="h-4 w-4" />
-                    <span className="text-xs font-medium">{language.toUpperCase()}</span>
-                  </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className={`px-3 py-2 rounded-full transition-all duration-300 ease-in-out hover:shadow-md hover:scale-[1.05] border border-white/10 ${
+                    isScrolled 
+                      ? 'bg-white/10 backdrop-blur-sm hover:bg-brand-light/30 text-gray-700 hover:text-brand-navy' 
+                      : isCrisisPage
+                      ? 'bg-white/10 backdrop-blur-sm hover:bg-brand-light/30 text-brand-navy hover:text-brand-navy'
+                      : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white hover:text-white'
+                  }`}
+                >
+                  <Globe className="h-4 w-4" />
+                  <span className="text-sm font-semibold">{language.toUpperCase()}</span>
+                </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border-brand-light/20 shadow-lg">
                   <DropdownMenuItem 
@@ -161,6 +156,17 @@ const Navbar = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+
+              {/* Partner With Us Button */}
+              <Button
+                asChild
+                variant="outline"
+                className="border-2 border-yellow-500 text-yellow-600 hover:bg-yellow-500 hover:text-white font-medium px-4 py-2 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
+              >
+                <Link href="/contact?subject=Partnership">
+                  {language === 'en' ? 'Partner With Us' : 'Shirikiana Nasi'}
+                </Link>
+              </Button>
 
               {/* Get Help Button */}
               <Button

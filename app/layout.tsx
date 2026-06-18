@@ -1,33 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
+import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import AIChatbot from "@/components/chat/AIChatbot";
+import HydrationGuard from "@/components/ui/HydrationGuard";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Let's Talk with Bossbaby",
+    default: "Let's Talk with Bossbaby -Mental Health Support in Kenya",
     template: "%s | Let's Talk with Bossbaby"
   },
-  description: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Book counseling, access resources, and join our community. Conversations save lives.",
+  description: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Counseling, programs, and community support since 2021. Conversations save lives.",
   metadataBase: new URL("https://ltwbb.org"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Let's Talk with Bossbaby - Mental Health Support in Kenya",
-    description: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Book counseling, access resources, and join our community.",
+    title: "Let's Talk with Bossbaby -Mental Health Support in Kenya",
+    description: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Counseling, programs, and community support since 2021. Conversations save lives.",
     url: "https://ltwbb.org",
     siteName: "Let's Talk with Bossbaby",
     locale: "en_KE",
@@ -35,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Let's Talk with Bossbaby - Mental Health Support in Kenya",
-    description: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Conversations save lives.",
+    title: "Let's Talk with Bossbaby -Mental Health Support in Kenya",
+    description: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Counseling, programs, and community support since 2021. Conversations save lives.",
   },
   robots: {
     index: true,
@@ -52,15 +57,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning={true}
     >
-      <body className="min-h-full flex flex-col bg-gradient-to-br from-brand-light/30 to-white" suppressHydrationWarning>
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <AIChatbot />
+      <body className="min-h-full bg-white" suppressHydrationWarning={true}>
+          <HydrationGuard>
+            <Navigation />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <AIChatbot />
+          </HydrationGuard>
       </body>
     </html>
   );

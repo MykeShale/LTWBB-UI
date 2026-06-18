@@ -17,7 +17,7 @@ export default defineType({
       title: 'Site Description',
       type: 'text',
       rows: 2,
-      initialValue: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Book counseling, access resources, and join our community. Conversations save lives.",
+      initialValue: "LTWBB CBO creates safe spaces for mental health conversations across Kenya. Book counseling, access resources, and join our community. Your Voice, Your Power.",
       validation: (Rule) => Rule.required(),
     }),
     defineField({

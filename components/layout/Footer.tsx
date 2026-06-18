@@ -4,7 +4,10 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, Phone, MapPin, Send, Heart } from 'lucide-react';
+import AwardBadges from '@/components/ui/AwardBadges';
+import SDGBadge from '@/components/ui/SDGBadge';
+import { Mail, Phone, MapPin, Send, MessageSquare, Trees, GraduationCap, Users, Leaf, Sprout, Globe, Share2 } from 'lucide-react';
+import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +19,7 @@ const Footer = () => {
     if (!email) return;
 
     setIsSubscribing(true);
-    
+
     try {
       // TODO: Implement newsletter subscription API
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
@@ -31,216 +34,235 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-brand-navy via-brand-dark to-brand-navy text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 20% 30%, white 1px, transparent 1px), radial-gradient(circle at 80% 70%, white 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }} />
+    <footer className="relative bg-gradient-to-br from-brand-navy via-brand-navy-dark to-brand-navy text-white overflow-hidden">
+      {/* Premium Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-royal/5 via-transparent to-brand-light/5" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-royal/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-light/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(45deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%)`,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
       </div>
-      
-      <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Column 1: Logo + Tagline + Mission */}
-          <div className="space-y-6">
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-royal to-brand-light flex items-center justify-center">
-                  <Heart className="h-5 w-5 text-brand-navy" />
-                </div>
-                <h3 className="text-2xl font-bold">LTWBB</h3>
-              </div>
-              <p className="text-brand-light text-sm font-medium">
-                Conversations Save Lives
-              </p>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Creating safe spaces for mental health awareness while driving impactful 
-              climate action through tree planting and environmental conservation.
-            </p>
-            <div className="pt-4">
-              <div className="flex items-center space-x-2 text-brand-light text-xs">
-                <span>🌱</span>
-                <span>Planting hope, growing minds</span>
-              </div>
-            </div>
-          </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-brand-light flex items-center">
-              <span className="w-2 h-2 bg-brand-royal rounded-full mr-2"></span>
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/about', label: 'About' },
-                { href: '/projects', label: 'Projects' },
-                { href: '/resources', label: 'Resources' },
-                { href: '/podcast', label: 'Podcast' },
-                { href: '/events', label: 'Events' },
-                { href: '/donate', label: 'Donate' },
-              ].map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    href={link.href} 
-                    className="text-gray-300 hover:text-brand-light hover:translate-x-1 transition-all duration-300 text-sm inline-flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-brand-royal rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Programs */}
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-brand-light flex items-center">
-              <span className="w-2 h-2 bg-brand-royal rounded-full mr-2"></span>
-              Programs
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { href: '/projects#tree-therapy', label: 'Tree Therapy', emoji: '🌳' },
-                { href: '/projects#green-schools', label: 'Green Schools', emoji: '🏫' },
-                { href: '/projects#youth-ambassadors', label: 'Youth Ambassadors', emoji: '🙋' },
-                { href: '/projects#civil-servants', label: 'Civil Servants Program', emoji: '🛡️' },
-                { href: '/projects#counseling-nature', label: 'Counseling in Nature', emoji: '🌿' },
-              ].map((program, index) => (
-                <li key={index}>
-                  <Link 
-                    href={program.href} 
-                    className="text-gray-300 hover:text-brand-light hover:translate-x-1 transition-all duration-300 text-sm inline-flex items-center group"
-                  >
-                    <span className="mr-2">{program.emoji}</span>
-                    {program.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Contact + Newsletter */}
-          <div className="space-y-6">
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-brand-light flex items-center">
-                <span className="w-2 h-2 bg-brand-royal rounded-full mr-2"></span>
-                Contact
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 group cursor-pointer">
-                  <div className="w-8 h-8 bg-gradient-to-br from-brand-royal to-brand-light rounded-full flex items-center justify-center">
-                    <Phone className="h-4 w-4 text-brand-navy" />
-                  </div>
-                  <span className="text-sm text-gray-300 group-hover:text-brand-light transition-colors">+254 714 445791</span>
-                </div>
-                <div className="flex items-center space-x-3 group cursor-pointer">
-                  <div className="w-8 h-8 bg-gradient-to-br from-brand-royal to-brand-light rounded-full flex items-center justify-center">
-                    <Mail className="h-4 w-4 text-brand-navy" />
-                  </div>
-                  <span className="text-sm text-gray-300 group-hover:text-brand-light transition-colors">info@ltwbb.org</span>
-                </div>
-                <div className="flex items-center space-x-3 group cursor-pointer">
-                  <div className="w-8 h-8 bg-gradient-to-br from-brand-royal to-brand-light rounded-full flex items-center justify-center">
-                    <MapPin className="h-4 w-4 text-brand-navy" />
-                  </div>
-                  <span className="text-sm text-gray-300 group-hover:text-brand-light transition-colors">Murang'a County, Kenya</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-brand-light flex items-center">
-                <span className="w-2 h-2 bg-brand-royal rounded-full mr-2"></span>
-                Newsletter
-              </h4>
-              <p className="text-sm text-gray-300">
-                Get mental health tips and updates
-              </p>
-              <form onSubmit={handleNewsletterSubscribe} className="space-y-4">
-                <Input
-                  type="email"
-                  placeholder="Your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-brand-royal focus:bg-white/15 rounded-full px-4 py-3 transition-all duration-300"
-                  required
+      <div className="relative max-w-[1400px] mx-auto px-[60px] py-10 z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Column 1: Brand & Mission */}
+          <div className="lg:col-span-1 space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20">
+                <img
+                  src="/logo.png"
+                  alt="LTWBB Logo"
+                  className="w-full h-full object-contain p-2"
                 />
-                <Button
-                  type="submit"
-                  disabled={isSubscribing}
-                  className="w-full bg-gradient-to-r from-brand-royal to-brand-light hover:from-brand-light hover:to-brand-royal text-brand-navy font-semibold rounded-full px-4 py-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out"
-                >
-                  {isSubscribing ? (
-                    <span className="flex items-center justify-center">
-                      <div className="w-4 h-4 border-2 border-brand-navy border-t-transparent rounded-full animate-spin mr-2" />
-                      Subscribing...
-                    </span>
-                  ) : (
-                    <span className="flex items-center justify-center">
-                      <Send className="h-4 w-4 mr-2" />
-                      Subscribe
-                    </span>
-                  )}
-                </Button>
-              </form>
-              {subscribeMessage && (
-                <p className="text-sm text-brand-light bg-white/10 rounded-full px-3 py-1 text-center animate-pulse">{subscribeMessage}</p>
-              )}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>LTWBB</h3>
+                <p className="text-brand-light text-xs font-medium">
+                  Your Voice, Your Power
+                </p>
+              </div>
             </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <p className="text-white/90 text-sm leading-relaxed">
+                Creating safe spaces for mental health awareness while driving impactful
+                climate action through tree planting and environmental conservation.
+              </p>
+              <div className="flex items-center space-x-2 mt-3 text-brand-light">
+                <Sprout className="h-4 w-4" />
+                <span className="text-xs font-medium">Planting hope, growing minds</span>
+              </div>
+            </div>
+          </div>
 
+          {/* Column 2: Navigation */}
+          <div className="space-y-3">
+            <h4 className="text-sm font-semibold text-brand-light uppercase tracking-wide">Quick Links</h4>
+            <div className="grid grid-cols-2 gap-3">
+              <ul className="space-y-1.5">
+                {[
+                  { href: '/', label: 'Home' },
+                  { href: '/about', label: 'About' },
+                  { href: '/projects', label: 'Projects' },
+                  { href: '/resources', label: 'Resources' },
+                ].map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-300 hover:text-brand-light transition-colors text-xs flex items-center gap-1.5"
+                    >
+                      <div className="w-1 h-1 bg-brand-royal rounded-full" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-1.5">
+                {[
+                  { href: '/podcast', label: 'Podcast' },
+                  { href: '/events', label: 'Events' },
+                  { href: '/donate', label: 'Donate' },
+                  { href: '/contact', label: 'Contact' },
+                ].map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-300 hover:text-brand-light transition-colors text-xs flex items-center gap-1.5"
+                    >
+                      <div className="w-1 h-1 bg-brand-royal rounded-full" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             {/* Social Links */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-brand-light flex items-center">
-                <span className="w-2 h-2 bg-brand-royal rounded-full mr-2"></span>
-                Follow Us
-              </h4>
-              <div className="flex space-x-4">
+            <div className="space-y-2">
+              <h4 className="text-sm font-semibold text-brand-light uppercase tracking-wide">Follow Us</h4>
+              <div className="flex space-x-2">
                 <a
                   href="https://instagram.com/letstalkwithbossbaby"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-brand-royal hover:to-brand-light hover:text-brand-navy transition-all duration-300 ease-in-out transform hover:scale-110 border border-white/20 hover:shadow-lg"
+                  className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-brand-royal hover:to-brand-light hover:text-brand-navy transition-all duration-300 border border-white/20"
+                  aria-label="Instagram"
                 >
-                  <span className="font-medium">📷</span>
+                  <FaInstagram className="h-4 w-4" />
                 </a>
                 <a
                   href="https://facebook.com/letstalkwithbossbaby"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-brand-royal hover:to-brand-light hover:text-brand-navy transition-all duration-300 ease-in-out transform hover:scale-110 border border-white/20 hover:shadow-lg"
+                  className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-brand-royal hover:to-brand-light hover:text-brand-navy transition-all duration-300 border border-white/20"
+                  aria-label="Facebook"
                 >
-                  <span className="font-medium">📘</span>
+                  <FaFacebook className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://linkedin.com/company/letstalkwithbossbaby"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-brand-royal hover:to-brand-light hover:text-brand-navy transition-all duration-300 border border-white/20"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://wa.me/254714445791"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-green-600 hover:to-green-700 hover:text-white transition-all duration-300 border border-white/20"
+                  aria-label="WhatsApp"
+                >
+                  <FaWhatsapp className="h-4 w-4" />
                 </a>
               </div>
             </div>
+            
           </div>
+
+          {/* Column 3: Programs & Contact */}
+          <div className="space-y-4">
+            {/* Programs */}
+            {/* <div className="space-y-2">
+              <h4 className="text-sm font-semibold text-brand-light uppercase tracking-wide">Programs</h4>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { href: '/projects#tree-therapy', label: 'Tree Therapy', icon: Trees },
+                  { href: '/projects#green-schools', label: 'Green Schools', icon: GraduationCap },
+                  { href: '/projects#youth-ambassadors', label: 'Youth Ambassadors', icon: Users },
+                  { href: '/projects#counseling-nature', label: 'Counseling in Nature', icon: Leaf },
+                ].map((program, index) => (
+                  <Link
+                    key={index}
+                    href={program.href}
+                    className="text-gray-300 hover:text-brand-light transition-colors text-xs flex items-center gap-1.5"
+                  >
+                    <program.icon className="h-3 w-3 text-brand-royal" />
+                    {program.label}
+                  </Link>
+                ))}
+              </div>
+            </div> */}
+
+            {/* Contact */}
+            <div className="space-y-2">
+              <h4 className="text-sm font-semibold text-brand-light uppercase tracking-wide">Contact</h4>
+              <div className="space-y-1.5">
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-3.5 w-3.5 text-brand-royal" />
+                  <span className="text-xs text-gray-300">+254 714 445791</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-3.5 w-3.5 text-brand-royal" />
+                  <span className="text-xs text-gray-300">letstalkwithbossbaby@gmail.com</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-3.5 w-3.5 text-brand-royal" />
+                  <span className="text-xs text-gray-300">Murang'a County, Kenya</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+              <div className="space-y-1">
+                <h4 className="text-sm font-semibold text-brand-light">Stay Connected</h4>
+                <p className="text-xs text-gray-400">Get mental health tips and climate action updates</p>
+              </div>
+              <form onSubmit={handleNewsletterSubscribe} className="flex gap-2">
+                <Input
+                  type="email"
+                  placeholder="Your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-brand-royal focus:bg-white/15 rounded-lg px-3 py-2 text-xs flex-1"
+                  required
+                />
+                <Button
+                  type="submit"
+                  disabled={isSubscribing}
+                  className="bg-gradient-to-r from-brand-royal to-brand-light hover:from-brand-light hover:to-brand-royal text-brand-navy font-semibold rounded-lg px-3 py-2 text-xs transition-all duration-300"
+                >
+                  {isSubscribing ? (
+                    <div className="w-4 h-4 border-2 border-brand-navy border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <Send className="h-3.5 w-3.5" />
+                  )}
+                </Button>
+              </form>
+            </div>
+
+          </div>
+
+
+
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">
-              © 2025 LTWBB CBO. All rights reserved. | Kenya Data Protection Act compliant
+        <div className="border-t border-gray-700/50 mt-4 pt-3">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+            <p className="text-xs text-gray-400 text-center md:text-left">
+              © 2026 LTWBB CBO. All rights reserved. | CBO Reg. No. OP.218/051/22-040/10623
             </p>
-            <div className="flex space-x-6 text-sm">
-              <Link 
-                href="/privacy" 
+            <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-3 text-xs">
+              <Link
+                href="/privacy"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Privacy Policy
               </Link>
-              <Link 
-                href="/terms" 
+              <Link
+                href="/terms"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Terms of Service
               </Link>
+              <span className="text-gray-500">Kenya Data Protection Act compliant</span>
             </div>
           </div>
         </div>

@@ -19,11 +19,20 @@ export default function AIChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm your mental wellness companion. I'm here to listen and support you anonymously. How are you feeling today?",
+      text: "Hello! I'm your LTWBB mental wellness assistant. I'm here to provide guidance, support, and resources. Remember, I'm not a therapist, but I can help you find the right support. How can I help you today?",
       sender: 'bot',
       timestamp: new Date(),
     }
   ]);
+
+  const suggestedPrompts = [
+    "I need someone to talk to",
+    "I'm feeling overwhelmed",
+    "Find support near me", 
+    "Join a support session",
+    "I'm worried about someone",
+    "Crisis help needed"
+  ];
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -162,7 +171,7 @@ export default function AIChatbot() {
             </div>
 
             {/* Messages Area */}
-            <div className="h-[400px] overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-white to-brand-light/20">
+            <div className="h-[250px] overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-white to-brand-light/20">
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -217,6 +226,29 @@ export default function AIChatbot() {
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Suggested Prompts */}
+            {messages.length === 1 && (
+              <div className="px-4 py-3 bg-brand-light/20 border-b border-brand-light/30">
+                <p className="text-xs text-brand-gray mb-2">Suggested questions:</p>
+                <div className="flex flex-wrap gap-2">
+                  {suggestedPrompts.map((prompt, index) => (
+                    <Button
+                      key={index}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        setInputMessage(prompt);
+                        inputRef.current?.focus();
+                      }}
+                      className="text-xs bg-white/60 border-brand-light/40 text-brand-navy hover:bg-brand-royal hover:text-white px-3 py-1 rounded-full"
+                    >
+                      {prompt}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Input Area */}
             <div className="p-4 bg-white border-t border-brand-light/30">
               <div className="flex space-x-2">
@@ -225,7 +257,7 @@ export default function AIChatbot() {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Type your message..."
+                  placeholder="Type your message or select a suggestion above..."
                   className="flex-1 bg-white/60 border-brand-light/40 focus:border-brand-royal text-sm"
                   disabled={isTyping}
                 />
@@ -240,10 +272,10 @@ export default function AIChatbot() {
               </div>
               
               {/* Disclaimer */}
-              <div className="mt-3 text-xs text-gray-500 text-center">
-                <p>This is an AI assistant for support. For immediate help, call:</p>
-                <p className="font-semibold text-brand-navy">Befrienders: 0800 723 253 | Red Cross: 1199</p>
-              </div>
+              {/* <div className="mt-1 text-xs text-gray-500 text-center bg-brand-crisis-bg/30 rounded-lg p-2">
+                <p className="font-semibold text-brand-crisis mb-1">Important: I'm an AI assistant, not a therapist</p>
+                <p>For immediate help, call Befrienders: <span className="font-bold text-brand-crisis">0800 723 253</span> or Red Cross: <span className="font-bold text-brand-crisis">1199</span></p>
+              </div> */}
             </div>
           </div>
         )}

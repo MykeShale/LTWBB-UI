@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
+import ImpactReport from '@/components/ui/ImpactReport';
+import HeroSection from '@/components/ui/HeroSection';
 import { ArrowDown, Trees, Users, Calendar, School, Heart, Mic, Phone, Mail, Send, ChevronRight } from 'lucide-react';
 
 export default function HomePage() {
@@ -13,10 +15,10 @@ export default function HomePage() {
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [subscribeMessage, setSubscribeMessage] = useState('');
   const [counters, setCounters] = useState({
-    trees: 0,
-    people: 0,
-    sessions: 0,
-    schools: 0
+    trees: 5000,
+    people: 2000,
+    sessions: 300,
+    schools: 15
   });
 
   const heroRef = useRef<HTMLDivElement>(null);
@@ -94,18 +96,6 @@ export default function HomePage() {
 
   const programs = [
     {
-      icon: <Trees className="h-8 w-8" />,
-      title: "Tree Therapy Project",
-      description: "Healing through nature connection and environmental stewardship.",
-      link: "/projects#tree-therapy"
-    },
-    {
-      icon: <School className="h-8 w-8" />,
-      title: "Green Schools Program",
-      description: "Mental health education and tree planting in educational institutions.",
-      link: "/projects#green-schools"
-    },
-    {
       icon: <Heart className="h-8 w-8 animate-pulse" style={{ animation: "float 3s ease-in-out infinite" }} />,
       title: "Counseling in Nature",
       description: "Therapeutic sessions in natural outdoor settings.",
@@ -118,16 +108,28 @@ export default function HomePage() {
       link: "/projects#youth-ambassadors"
     },
     {
+      icon: <Calendar className="h-8 w-8" />,
+      title: "Civil Servants Program",
+      description: "Mental health support for public sector workers.",
+      link: "/projects#civil-servants"
+    },
+    {
+      icon: <Trees className="h-8 w-8" />,
+      title: "Tree Therapy Project",
+      description: "Healing through nature connection and environmental stewardship.",
+      link: "/projects#tree-therapy"
+    },
+    {
+      icon: <School className="h-8 w-8" />,
+      title: "Green Schools Program",
+      description: "Mental health education and tree planting in educational institutions.",
+      link: "/projects#green-schools"
+    },
+    {
       icon: <Mic className="h-8 w-8" />,
       title: "Let's Talk Podcast",
       description: "Conversations about mental health and environmental wellness.",
       link: "/podcast"
-    },
-    {
-      icon: <Calendar className="h-8 w-8" />,
-      title: "Civil Servants Program",
-      description: "Mental health support for public service professionals.",
-      link: "/projects#civil-servants"
     }
   ];
 
@@ -158,72 +160,17 @@ export default function HomePage() {
   const partners = [
     "Ministry of Health Kenya",
     "Kenya Red Cross",
-    "UNICEF Kenya",
-    "World Health Organization",
     "Kenya Forest Service",
-    "Ministry of Education"
+    "Murang'a County Government",
+    "Kenya Mental Health Policy Coalition",
+    "Kenya Wildlife Service",
+    "National Council for Population and Development Kenya"
   ];
 
   return (
     <div className="min-h-full">
       {/* SECTION 1: Hero */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-navy via-brand-dark to-brand-navy overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-        
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-brand-royal/20 rounded-full animate-pulse" />
-        <div className="absolute top-40 right-20 w-16 h-16 bg-brand-light/20 rounded-full animate-pulse delay-1000" />
-        <div className="absolute bottom-32 left-32 w-24 h-24 bg-brand-crisis/10 rounded-full animate-pulse delay-2000" />
-        
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <div className={`space-y-8 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
-              <span className="w-2 h-2 bg-brand-crisis rounded-full mr-2 animate-pulse"></span>
-              <span className="text-sm font-medium text-brand-light">24/7 Crisis Support Available</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              <span className="block mb-2">You Don't Have to</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-white">Face It Alone</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-brand-light max-w-3xl mx-auto leading-relaxed">
-              LTWBB CBO creates <span className="text-white font-semibold">safe spaces</span> for mental health conversations across Kenya. 
-              <span className="text-brand-crisis font-semibold"> Conversations save lives.</span>
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Button asChild size="lg" className="bg-gradient-to-r from-white to-brand-light text-brand-navy hover:from-brand-light hover:to-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out px-8 py-4 text-lg font-semibold rounded-full">
-                <Link href="/resources">
-                  Start a Conversation
-                  <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-brand-navy backdrop-blur-sm px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 ease-in-out hover:shadow-lg">
-                <Link href="/booking">
-                  Book a Counseling Session
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="flex flex-col items-center space-y-2">
-            <ArrowDown className="h-6 w-6 text-brand-light" />
-            <span className="text-xs text-brand-light/60">Scroll to explore</span>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* SECTION 2: Impact Stats Bar */}
       <section ref={statsRef} className="bg-gradient-to-br from-brand-light to-white py-16 relative overflow-hidden">
@@ -255,7 +202,9 @@ export default function HomePage() {
                   </div>
                   <div className={`absolute inset-0 w-16 h-16 mx-auto rounded-full bg-gradient-to-br ${stat.color} opacity-20 animate-ping`} />
                 </div>
-                <div className="text-4xl font-bold text-brand-navy mb-1">{stat.value.toLocaleString()}+</div>
+                <div className="text-4xl font-bold text-brand-navy mb-1">
+                  {stat.value > 0 ? `${stat.value.toLocaleString()}+` : 'Loading...'}
+                </div>
                 <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
@@ -267,12 +216,31 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-br from-brand-light to-white/80">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-brand-light/30 shadow-lg">
-            <blockquote className="text-2xl md:text-3xl italic text-center text-brand-navy mb-6">
-              "We believe conversations save lives. Mental health is not a luxury — it is a human right."
-            </blockquote>
-            <cite className="block text-center text-brand-dark/80">
-              — Rhoda Mwongela (Bossbaby), Founder & CEO
-            </cite>
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <blockquote className="text-2xl md:text-3xl italic text-brand-navy mb-6">
+                  "We believe conversations save lives. Mental health is not a luxury -it is a human right."
+                </blockquote>
+                <cite className="block text-brand-dark/80">
+                  -Rhoda Mwongela (Bossbaby), Founder & CEO
+                </cite>
+              </div>
+              <div className="text-center lg:text-right">
+                <div className="inline-block relative">
+                  <div className="w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-brand-navy to-brand-royal rounded-full overflow-hidden shadow-xl">
+                    <div className="w-full h-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                      <div className="w-24 h-24 lg:w-28 lg:h-28 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-brand-royal">
+                        <div className="text-2xl lg:text-3xl font-bold text-brand-navy">RM</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 space-y-2">
+                    <h3 className="text-xl font-bold text-brand-navy">Rhoda Mwongela (Bossbaby)</h3>
+                    <p className="text-brand-dark/80 font-medium">Founder & CEO</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -315,7 +283,101 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 5: Latest Resources */}
+      {/* SECTION 5: Institutional Partnership CTA */}
+      <section className="py-16 bg-gradient-to-br from-brand-navy to-brand-dark text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+              <span className="w-2 h-2 bg-brand-crisis rounded-full mr-2 animate-pulse"></span>
+              <span className="text-sm font-medium text-brand-light">PARTNERSHIP OPPORTUNITIES</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Partner With Us for Greater Impact
+            </h2>
+            <p className="text-xl text-brand-light mb-8 max-w-3xl mx-auto leading-relaxed">
+              We collaborate with NGOs, government institutions, and corporate partners to scale mental health services 
+              and environmental conservation across Kenya.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-royal to-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-brand-navy" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">NGO Partnerships</h3>
+                <p className="text-brand-light mb-4">
+                  Collaborate on mental health programs, resource sharing, and community outreach initiatives.
+                </p>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <a href="/contact?subject=NGO+Partnership">Learn More</a>
+                </Button>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-crisis to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Government Collaboration</h3>
+                <p className="text-brand-light mb-4">
+                  Work with us on public mental health initiatives, policy development, and national programs.
+                </p>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <a href="/contact?subject=Government+Partnership">Learn More</a>
+                </Button>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-green-safe to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Trees className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Corporate Partnerships</h3>
+                <p className="text-brand-light mb-4">
+                  Support employee wellness programs, CSR initiatives, and environmental sustainability projects.
+                </p>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <a href="/contact?subject=Corporate+Partnership">Learn More</a>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-bold text-white mb-4">Why Partner With LTWBB?</h3>
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Proven track record of community impact</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Registered CBO with government recognition</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Expertise in mental health & environment</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Strong community networks</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Data-driven impact measurement</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Alignment with SDG goals</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: Latest Resources */}
       <section className="py-16 bg-gradient-to-br from-brand-light/50 to-white/80">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-navy mb-12">
@@ -458,17 +520,17 @@ export default function HomePage() {
                   {[
                     { 
                       title: "Managing Anxiety in Daily Life", 
-                      time: "Tuesday, 6:00 PM EAT",
+                      time: "Tuesday, May 13, 2026 - 6:00 PM EAT",
                       speaker: "Dr. Sarah Kimani - Clinical Psychologist"
                     },
                     { 
                       title: "Building Resilience Through Nature", 
-                      time: "Thursday, 6:00 PM EAT", 
+                      time: "Thursday, May 15, 2026 - 6:00 PM EAT", 
                       speaker: "Rhoda Mwongela - LTWBB Founder"
                     },
                     { 
                       title: "Mental Health in the Workplace", 
-                      time: "Next Tuesday, 6:00 PM EAT",
+                      time: "Tuesday, May 20, 2026 - 6:00 PM EAT",
                       speaker: "Dr. James Muriithi - Occupational Health"
                     }
                   ].map((webinar, index) => (
@@ -572,7 +634,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 9: Newsletter CTA */}
+      {/* SECTION 9: Annual Impact Report */}
+      <section className="py-16 bg-gradient-to-br from-brand-light/50 to-white/80">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+              Our Impact in Numbers
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Transparency and accountability are core to our mission. Download our comprehensive annual report.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <ImpactReport />
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 10: Newsletter CTA */}
       <section className="py-16 bg-gradient-to-br from-brand-light to-brand-royal/20">
         <div className="container mx-auto px-4 text-center max-w-2xl">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-brand-light/30 shadow-lg">
@@ -608,6 +688,100 @@ export default function HomePage() {
             <p className="text-sm text-brand-dark/60 mt-4">
               No spam. Unsubscribe anytime.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 9: Institutional Partnership CTA */}
+      <section className="py-16 bg-gradient-to-br from-brand-navy to-brand-dark text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+              <span className="w-2 h-2 bg-brand-crisis rounded-full mr-2 animate-pulse"></span>
+              <span className="text-sm font-medium text-brand-light">PARTNERSHIP OPPORTUNITIES</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Partner With Us for Greater Impact
+            </h2>
+            <p className="text-xl text-brand-light mb-8 max-w-3xl mx-auto leading-relaxed">
+              We collaborate with NGOs, government institutions, and corporate partners to scale mental health services 
+              and environmental conservation across Kenya.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-royal to-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-brand-navy" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">NGO Partnerships</h3>
+                <p className="text-brand-light mb-4">
+                  Collaborate on mental health programs, resource sharing, and community outreach initiatives.
+                </p>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <a href="/contact?subject=NGO+Partnership">Learn More</a>
+                </Button>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-crisis to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Government Collaboration</h3>
+                <p className="text-brand-light mb-4">
+                  Work with us on public mental health initiatives, policy development, and national programs.
+                </p>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <a href="/contact?subject=Government+Partnership">Learn More</a>
+                </Button>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-green-safe to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Trees className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Corporate Partnerships</h3>
+                <p className="text-brand-light mb-4">
+                  Support employee wellness programs, CSR initiatives, and environmental sustainability projects.
+                </p>
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <a href="/contact?subject=Corporate+Partnership">Learn More</a>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-bold text-white mb-4">Why Partner With LTWBB?</h3>
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Proven track record of community impact</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Registered CBO with government recognition</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Expertise in mental health & environment</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Strong community networks</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Data-driven impact measurement</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-brand-royal rounded-full mr-3"></div>
+                    <span className="text-brand-light">Alignment with SDG goals</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

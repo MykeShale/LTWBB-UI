@@ -31,6 +31,28 @@ export default function CrisisPage() {
       description: 'Our support team during business hours',
       isPrimary: false,
       color: 'bg-brand-navy hover:bg-blue-700'
+    },
+    {
+      name: 'WhatsApp Support',
+      phone: '+254714445791',
+      description: 'Chat with us on WhatsApp - fastest response time',
+      isPrimary: false,
+      color: 'bg-green-600 hover:bg-green-700',
+      isWhatsApp: true
+    },
+    {
+      name: 'NACADA Helpline',
+      phone: '1192',
+      description: 'National Authority for the Campaign Against Alcohol and Drug Abuse',
+      isPrimary: false,
+      color: 'bg-purple-600 hover:bg-purple-700'
+    },
+    {
+      name: 'National Child Helpline',
+      phone: '116',
+      description: '24/7 child protection and support services',
+      isPrimary: false,
+      color: 'bg-blue-600 hover:bg-blue-700'
     }
   ];
 
@@ -130,9 +152,9 @@ export default function CrisisPage() {
                         size="lg"
                         className={`${contact.color} text-white min-w-[200px] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full`}
                       >
-                        <a href={`tel:${contact.phone}`}>
+                        <a href={contact.isWhatsApp ? `https://wa.me/254714445791` : `tel:${contact.phone}`}>
                           <Phone className="mr-3 h-5 w-5" />
-                          Call Now
+                          {contact.isWhatsApp ? 'Chat on WhatsApp' : 'Call Now'}
                         </a>
                       </Button>
                     </div>

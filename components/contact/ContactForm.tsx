@@ -31,21 +31,35 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage('');
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitMessage('Thank you for your message! We will get back to you within 24 hours.');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        setSubmitMessage(data.message);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitMessage(data.error || 'Something went wrong. Please try again.');
+      }
     } catch (error) {
-      setSubmitMessage('Something went wrong. Please try again later.');
+      console.error('Contact form error:', error);
+      setSubmitMessage('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitMessage(''), 5000);
@@ -102,10 +116,10 @@ export default function ContactForm() {
                     <div>
                       <h3 className="font-semibold text-brand-navy">Email</h3>
                       <a 
-                        href="mailto:info@ltwbb.org" 
+                        href="mailto:letstalkwithbossbaby@gmail.com" 
                         className="text-brand-dark/70 hover:text-brand-royal transition-colors"
                       >
-                        info@ltwbb.org
+                        letstalkwithbossbaby@gmail.com
                       </a>
                     </div>
                   </div>
@@ -162,6 +176,15 @@ export default function ContactForm() {
                     >
                       <span className="font-medium">📘</span>
                       <span>Facebook: Let's Talk with Bossbaby</span>
+                    </a>
+                    <a
+                      href="https://linkedin.com/company/letstalkwithbossbaby"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 text-brand-dark/70 hover:text-brand-royal transition-colors"
+                    >
+                      <span className="font-medium">💼</span>
+                      <span>LinkedIn: Let's Talk with Bossbaby</span>
                     </a>
                   </div>
                 </CardContent>
