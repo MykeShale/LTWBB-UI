@@ -101,10 +101,10 @@ const ImpactStats = () => {
   return (
     <section 
       ref={sectionRef}
-      className="bg-[var(--color-brand-light)] border-y border-[rgba(44,62,140,0.1)] py-16"
+      className="bg-[var(--color-brand-light)] border-y border-[rgba(44,62,140,0.1)] py-12 sm:py-16"
     >
-      <div className="max-w-[1200px] mx-auto px-[60px]">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-[60px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-8">
           {stats.map((stat, index) => (
             <div 
               key={stat.key}

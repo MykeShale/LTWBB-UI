@@ -18,7 +18,10 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection />
-      
+
+      {/* Impact Statistics Bar */}
+      <ImpactStats />
+
       {/* Founder Spotlight */}
       <FounderSpotlight />
       

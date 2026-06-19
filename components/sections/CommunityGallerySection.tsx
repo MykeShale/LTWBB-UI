@@ -316,16 +316,17 @@ const CommunityGallerySection = () => {
             <Button
               asChild
               size="lg"
-              className="bg-white text-brand-navy hover:bg-brand-light hover:text-brand-light px-8 py-4 rounded-lg font-semibold"
+              className="bg-white text-brand-navy hover:bg-brand-light px-8 py-4 rounded-lg font-semibold"
             >
               <a href="/events">
                 Upcoming Events
               </a>
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
-              className="border-white text-brand-navy hover:bg-white hover:text-brand-navy px-8 py-4 rounded-lg font-medium"
+              className="border-2 border-white text-white hover:bg-white hover:text-brand-navy px-8 py-4 rounded-lg font-medium"
             >
               <a href="/contact?subject=Volunteer">
                 Volunteer With Us

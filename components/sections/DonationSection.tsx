@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -286,7 +287,17 @@ const DonationSection = () => {
                 Bank: Equity Bank Kenya<br />
                 Account: 1234567890
               </p>
-              <Button variant="outline" className="border-brand-royal text-brand-royal hover:bg-brand-royal hover:text-white">
+              <Button
+                type="button"
+                variant="outline"
+                className="border-brand-royal text-brand-royal hover:bg-brand-royal hover:text-white"
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    'Account Name: LETS TALK WITH BOSSBABY\nBank: Equity Bank Kenya\nAccount: 1234567890'
+                  );
+                  toast.success('Bank details copied');
+                }}
+              >
                 Copy Details
               </Button>
             </div>

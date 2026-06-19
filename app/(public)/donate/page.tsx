@@ -557,6 +557,7 @@ const DonatePage = () => {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };

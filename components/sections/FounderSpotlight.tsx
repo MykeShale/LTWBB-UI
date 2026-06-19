@@ -154,21 +154,26 @@ const FounderSpotlight = () => {
             </p>
 
             {/* Pull Quote */}
-            <div className="border-l-4 border-[var(--color-brand-royal)] bg-[var(--color-brand-light)] p-4 sm:p-6 rounded-r-lg">
-              <blockquote 
-                className="italic text-[var(--color-brand-navy)]"
-                style={{ 
+            <div className="relative bg-[var(--color-brand-light)] p-6 sm:p-8 rounded-lg">
+              <span
+                className="absolute -top-3 left-5 text-[var(--color-brand-navy-mist)] select-none pointer-events-none"
+                style={{ fontFamily: 'var(--font-display)', fontSize: '72px', lineHeight: 1 }}
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <blockquote
+                className="relative italic text-[var(--color-brand-navy)]"
+                style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(16px, 4vw, 20px)',
                   lineHeight: '1.6'
                 }}
               >
-                "Mental health is not a luxury. It is not a weakness. It is a human right -
-                and I will not stop until every Kenyan knows that."
+                Mental health is not a luxury. It is not a weakness. It is a human right —
+                and I will not stop until every Kenyan knows that.
               </blockquote>
             </div>
-
-
           </div>
         </div>
       </div>

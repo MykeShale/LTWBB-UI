@@ -1,22 +1,31 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Space_Mono } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import AIChatbot from "@/components/chat/AIChatbot";
 import HydrationGuard from "@/components/ui/HydrationGuard";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-heading",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-mono-data",
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -57,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${inter.variable} h-full antialiased`}
+      className={`${cormorantGaramond.variable} ${dmSans.variable} ${spaceMono.variable} h-full antialiased`}
       suppressHydrationWarning={true}
     >
       <body className="min-h-full bg-white" suppressHydrationWarning={true}>
@@ -68,6 +77,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <AIChatbot />
+            <Toaster position="top-center" />
           </HydrationGuard>
       </body>
     </html>

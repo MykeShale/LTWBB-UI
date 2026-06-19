@@ -339,9 +339,10 @@ const AboutStorySection = () => {
                 </Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-brand-navy hover:bg-white hover:text-brand-navy px-8 py-4 rounded-lg font-medium"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-navy px-8 py-4 rounded-lg font-medium"
               >
                 <Link href="/contact">
                   Partner With Us

@@ -178,19 +178,25 @@ const SupportSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              asChild
               size="lg"
-              className="bg-white text-brand-crisis hover:bg-brand-light hover:text-brand-navy px-8 py-4 rounded-lg font-bold"
+              className="bg-white text-brand-crisis hover:bg-brand-light px-8 py-4 rounded-lg font-bold"
             >
-              <Phone className="w-5 h-5 mr-2" />
-              Call 1199 Now
+              <a href="tel:1199">
+                <Phone className="w-5 h-5 mr-2" />
+                Call 1199 Now
+              </a>
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
-              className="border-white text-brand-navy hover:bg-white hover:text-brand-crisis px-8 py-4 rounded-lg font-medium"
+              className="border-2 border-white text-white hover:bg-white hover:text-brand-crisis px-8 py-4 rounded-lg font-medium"
             >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Start Live Chat
+              <a href="https://wa.me/254714445791" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Start Live Chat
+              </a>
             </Button>
           </div>
         </div>

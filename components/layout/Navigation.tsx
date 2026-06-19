@@ -159,9 +159,9 @@ const Navigation = () => {
                 asChild
                 variant="outline"
                 className={`border-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                  isScrolled 
+                  isScrolled
                     ? 'border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white'
-                    : 'border-white text-brand-navy hover:bg-white hover:text-brand-royal'
+                    : 'border-white text-white hover:bg-white hover:text-brand-royal'
                 }`}
               >
                 <Link href="/donate">
