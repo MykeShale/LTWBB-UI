@@ -97,7 +97,7 @@ const CommunityGallerySection = () => {
       date: '2024-05-11',
       location: 'Mount Kenya University',
       featured: true,
-      image: '/images/aylf.jpg'
+      image: '/images/team/aylf.jpg'
     }
   ];
 

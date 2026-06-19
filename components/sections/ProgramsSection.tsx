@@ -38,7 +38,7 @@ const ProgramsSection = () => {
       title: 'Mental Wealth Ambassadors',
       description: 'Youth leadership program training mental health advocates in communities and schools.',
       category: 'youth',
-      image: '/images/ambassador.jpg',
+      image: '/images/team/ambassador.jpg',
       features: [
         'Leadership training',
         'Peer support skills',

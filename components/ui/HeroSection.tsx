@@ -74,7 +74,7 @@ const HeroSection = () => {
               {/* Hero Image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/nivishe.jpg"
+                  src="/images/team/nivishe.jpg"
                   alt="Rhoda Mwongela - Mental Health Advocate"
                   width={500}
                   height={600}

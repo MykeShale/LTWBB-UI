@@ -20,7 +20,7 @@ export default function WebinarsPage() {
       duration: "90 minutes",
       capacity: "50 spots left",
       level: "Beginner Friendly",
-      image: "/images/webinars.jpg"
+      image: "/images/team/webinars.jpg"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ export default function WebinarsPage() {
       duration: "90 minutes",
       capacity: "75 spots left",
       level: "All Levels",
-      image: "/images/webinars.jpg"
+      image: "/images/team/webinars.jpg"
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ export default function WebinarsPage() {
       duration: "90 minutes",
       capacity: "100 spots left",
       level: "Intermediate",
-      image: "/images/webinars.jpg"
+      image: "/images/team/webinars.jpg"
     },
     {
       id: 4,
@@ -56,7 +56,7 @@ export default function WebinarsPage() {
       duration: "90 minutes",
       capacity: "60 spots left",
       level: "All Levels",
-      image: "/images/webinars.jpg"
+      image: "/images/team/webinars.jpg"
     }
   ];
 

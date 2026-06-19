@@ -195,7 +195,7 @@ const HeroSection = () => {
               >
                 {/* Founder Photo */}
                 <img 
-                  src="/images/rhoda.jpg" 
+                  src="/images/team/rhoda.jpg" 
                   alt="Rhoda Kavutha Mwongela - Founder & CEO of LTWBB"
                   className="w-full h-full object-cover"
                 />

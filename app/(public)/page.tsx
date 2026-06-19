@@ -579,7 +579,7 @@ export default function HomePage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20">
                 <div className="relative">
                   <img 
-                    src="/images/webinars.jpg" 
+                    src="/images/team/webinars.jpg" 
                     alt="LTWBB Live Webinars on Google Meet"
                     className="w-full h-auto object-cover"
                   />

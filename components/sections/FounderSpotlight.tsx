@@ -47,7 +47,7 @@ const FounderSpotlight = () => {
             >
               {/* Founder Photo */}
               <img 
-                src="/images/nivishe.jpg" 
+                src="/images/team/nivishe.jpg" 
                 alt="Rhoda Kavutha Mwongela - Founder & CEO of LTWBB"
                 className="w-full h-full object-cover"
               />

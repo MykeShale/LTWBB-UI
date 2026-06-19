@@ -96,7 +96,7 @@ export default function AboutPage() {
       name: "Rhoda Mwongela (Bossbaby)",
       role: "Founder & CEO",
       bio: "Passionate mental health advocate with over 5 years of experience in community dev't and environmental conservation. ",
-      image: "/images/rhoda.jpg",
+      image: "/images/team/rhoda.jpg",
       expertise: ["MentalHealth Advocacy", "Community Development"],
       social: {
         linkedin: "#",
@@ -108,7 +108,7 @@ export default function AboutPage() {
       name: "Dennis Karanja",
       role: "Lead Psychologist & Counsellor",
       bio: "Psychologist with over 5 years of experience in mental health care, addiction recovery, and psychosocial support.",
-      image: "/images/dennis.jpeg",
+      image: "/images/team/dennis.jpeg",
       expertise: ["Counseling Psychology", "Addiction Recovery"],
       social: {
         linkedin: "#",
@@ -120,7 +120,7 @@ export default function AboutPage() {
       name: "Fedelise Akinyi",
       role: "Program Coordinator & Community Builder",
       bio: "Mental health advocate, and founder of The Mama Tribe KE who creates content and builds community to support women.",
-      image: "/images/fidelis.jpeg",
+      image: "/images/team/fidelis.jpeg",
       expertise: ["Community Building", "Women's Empowerment"],
       social: {
         linkedin: "#",
@@ -132,7 +132,7 @@ export default function AboutPage() {
       name: "Musembi Aaron",
       role: "Mental Health Advocate & Wellness Coach",
       bio: "Mental health advocate and wellness coach with leadership experience in medical education and community initiatives.",
-      image: "/images/musembi.jpeg",
+      image: "/images/team/musembi.jpeg",
       expertise: ["Mental Health Advocacy", "Wellness Coaching", "Leadership"],
       social: {
         linkedin: "#",
@@ -144,7 +144,7 @@ export default function AboutPage() {
       name: "Anne",
       role: "Finance Director",
       bio: "Anne is the finance expert and executive team member in charge of finance operations including planning and management.",
-      image: "/images/ann.jpeg",
+      image: "/images/team/ann.jpeg",
       expertise: ["Finance Management", "Financial Planning"],
       social: {
         linkedin: "#",
@@ -156,7 +156,7 @@ export default function AboutPage() {
       name: "Mike Ayoti",
       role: "Director of IT & Digital Systems",
       bio: "Seasoned IT professional with extensive experience in digital transformation and technology leadership. ",
-      image: "/images/mike.png",
+      image: "/images/team/mike.png",
       expertise: ["ICT Consultancy", "Digital Strategy"],
       social: {
         linkedin: "#",
@@ -168,7 +168,7 @@ export default function AboutPage() {
       name: "Peter Njenga",
       role: "Brand Systems Designer & Brand Designer",
       bio: "Brand systems designer and founder of Brand Veneer Creative, crafting visual identity and brand strategy for Let's Talk with Bossbaby. ",
-      image: "/images/peter.jpeg",
+      image: "/images/team/peter.jpeg",
       expertise: ["Brand Systems Design", "Visual Identity"],
       social: {
         linkedin: "#",
@@ -180,7 +180,7 @@ export default function AboutPage() {
       name: "Joseph Mbondo",
       role: "Host, Uniformed Officers Mental Health Program",
       bio: "Host of the Uniformed Officers Mental Health Program, championing mental wellness support for police and military personnel. ",
-      image: "/images/mbondo.jpeg",
+      image: "/images/team/mbondo.jpeg",
       expertise: ["Mental Health Advocacy", "Program Hosting"],
       social: {
         linkedin: "#",
@@ -192,7 +192,7 @@ export default function AboutPage() {
       name: "Commissioner Wandera",
       role: "In Charge, Uniformed Officers Mental Health Program",
       bio: "Commissioner in charge of the Uniformed Officers Mental Health Program, leading mental wellness initiatives for police and military personnel. ",
-      image: "/images/wandera.jpeg",
+      image: "/images/team/wandera.jpeg",
       expertise: ["Mental Health Advocacy", "Program Leadership"],
       social: {
         linkedin: "#",
@@ -455,7 +455,7 @@ export default function AboutPage() {
               {/* Professional Photo of Rhoda */}
               <div className="relative">
                 <img
-                  src="/images/nivishe.jpg"
+                  src="/images/team/nivishe.jpg"
                   alt="Rhoda Mwongela - LTWBB Founder"
                   className="w-full h-auto object-cover rounded-lg shadow-2xl"
                 />
